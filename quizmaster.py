@@ -1,14 +1,18 @@
 """
-KI-QuizMaster LF 1–4 – Version 3.1
+KI-QuizMaster LF 1–4 – Version 4.0
 Lern-App für die Zwischenprüfung (IT-Berufe), Design angelehnt an die Siemens-Farbwelt.
 
 Starten:
     pip install -r requirements.txt
     streamlit run quizmaster.py
 
+Mehrbenutzerbetrieb (z. B. öffentlich über Streamlit Community Cloud):
+    Jeder Besucher hat seinen eigenen Lernstand, eigene Einstellungen und eigene Fragen.
+    Nichts davon wird auf dem Server gespeichert. Über die Statistik-Seite kann jeder
+    seinen Lernstand als Datei sichern und beim nächsten Besuch wieder laden.
+
 Dateien im selben Ordner:
-    fragen.json      Fragenkatalog (auch über die Seite "Eigene Fragen" erweiterbar)
-    lernstand.json   wird automatisch angelegt (Statistik, Einstellungen, Lernfortschritt)
+    fragen.json      gemeinsamer Fragenkatalog für alle Besucher (wird nur gelesen)
     logo.png         optional: wird oben rechts im Kopfbereich angezeigt
 """
 
@@ -24,8 +28,7 @@ import streamlit as st
 
 ORDNER = Path(__file__).parent
 FRAGEN_DATEI = ORDNER / "fragen.json"
-LERNSTAND_DATEI = ORDNER / "lernstand.json"
-ALT_STATS_DATEI = ORDNER / "stats.json"   # nur zur Übernahme alter Daten
+MAX_UPLOAD_BYTES = 2_000_000
 LOGO_DATEI = ORDNER / "logo.png"
 BUCHSTABEN = "ABCDEF"
 PRUEFUNG_FRAGEN = 20
@@ -155,6 +158,8 @@ div[data-baseweb="input"]:focus-within,div[data-baseweb="textarea"]:focus-within
 .sec{display:flex;align-items:center;gap:8px;margin:10px 0 8px;}
 .sec .tag{font-size:.8rem;}
 .srow .k .ic{margin-right:6px;}
+[data-testid="stFileUploaderDropzone"]{background:var(--panel)!important;border:1.5px dashed var(--rand)!important;border-radius:12px!important;}
+[data-testid="stFileUploaderDropzone"] *,[data-testid="stFileUploaderFile"] *{color:var(--text)!important;}
 .chip{display:inline-block;background:var(--grau);border-radius:999px;padding:2px 10px;font-size:.78rem;margin-right:6px;}
 """
 
@@ -183,27 +188,52 @@ def lade_fragen(pfad: str) -> dict:
         return json.load(datei)
 
 
-def lade_lernstand() -> dict:
-    leer = {"einstellungen": {}, "lf": {}, "fragen": {}}
-    try:
-        daten = json.loads(LERNSTAND_DATEI.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        try:  # Übernahme der Statistik aus Version 2
-            leer["lf"] = json.loads(ALT_STATS_DATEI.read_text(encoding="utf-8"))
-        except (OSError, ValueError):
-            pass
-        return leer
-    for schluessel, wert in leer.items():
-        daten.setdefault(schluessel, wert)
-    return daten
+def leerer_lernstand() -> dict:
+    """Lernstand eines Besuchers. Er lebt nur in dessen Browser-Sitzung, nie auf dem Server."""
+    return {"einstellungen": {}, "lf": {}, "fragen": {}, "eigene": {}}
 
 
-def speichere_lernstand() -> None:
-    try:
-        LERNSTAND_DATEI.write_text(
-            json.dumps(st.session_state.lernstand, ensure_ascii=False, indent=2), encoding="utf-8")
-    except OSError:
-        pass  # Die App läuft auch ohne Schreibrechte weiter
+def gueltige_frage(f) -> bool:
+    return (isinstance(f, dict) and isinstance(f.get("frage"), str) and f["frage"].strip()
+            and isinstance(f.get("optionen"), list) and 2 <= len(f["optionen"]) <= 6
+            and all(isinstance(o, str) and o.strip() for o in f["optionen"])
+            and len(set(f["optionen"])) == len(f["optionen"])
+            and isinstance(f.get("richtig"), int) and 0 <= f["richtig"] < len(f["optionen"])
+            and isinstance(f.get("erklaerung"), str))
+
+
+def pruefe_lernstand(roh) -> dict:
+    """Übernimmt aus einer hochgeladenen Datei nur gültige Werte."""
+    if not isinstance(roh, dict):
+        raise ValueError("kein Lernstand")
+    neu = leerer_lernstand()
+    einst = roh.get("einstellungen", {})
+    if isinstance(einst, dict):
+        if isinstance(einst.get("dark"), bool):
+            neu["einstellungen"]["dark"] = einst["dark"]
+        if einst.get("anzahl") in (0, 5, 10):
+            neu["einstellungen"]["anzahl"] = einst["anzahl"]
+    for key, e in (roh.get("lf") or {}).items():
+        if isinstance(e, dict) and all(isinstance(e.get(k), int) for k in ("versuche", "bestes", "letztes")):
+            neu["lf"][str(key)] = {k: max(0, min(e[k], 100 if k != "versuche" else 10**6))
+                                   for k in ("versuche", "bestes", "letztes")}
+    for fid, e in (roh.get("fragen") or {}).items():
+        if isinstance(e, dict) and isinstance(e.get("r"), int) and isinstance(e.get("f"), int):
+            neu["fragen"][str(fid)[:20]] = {"r": max(0, e["r"]), "f": max(0, e["f"]),
+                                            "letzte": e.get("letzte") if isinstance(e.get("letzte"), bool) else None}
+    for key, liste in (roh.get("eigene") or {}).items():
+        if isinstance(liste, list):
+            gut = [{k: f[k] for k in ("frage", "optionen", "richtig", "erklaerung")}
+                   for f in liste[:200] if gueltige_frage(f)]
+            if gut:
+                neu["eigene"][str(key)] = gut
+    return neu
+
+
+def mit_eigenen_fragen(basis: dict) -> dict:
+    """Gemeinsamer Katalog plus die eigenen Fragen dieses Besuchers (ohne den Katalog zu verändern)."""
+    eigene = st.session_state.lernstand["eigene"]
+    return {k: {"titel": lf["titel"], "fragen": lf["fragen"] + eigene.get(k, [])} for k, lf in basis.items()}
 
 
 def frage_id(text: str) -> str:
@@ -254,7 +284,7 @@ def fehler_text(fehler: list) -> str:
 
 def init_state() -> None:
     if "lernstand" not in st.session_state:
-        st.session_state.lernstand = lade_lernstand()
+        st.session_state.lernstand = leerer_lernstand()
     einst = st.session_state.lernstand["einstellungen"]
     standard = {
         "seite": "start",       # start | lauf | ende | statistik | editor
@@ -288,13 +318,11 @@ def setze(schluessel: str, wert) -> None:
 def setze_anzahl(wert: int) -> None:
     st.session_state.anzahl = wert
     st.session_state.lernstand["einstellungen"]["anzahl"] = wert
-    speichere_lernstand()
 
 
 def wechsle_theme() -> None:
     st.session_state.dark = not st.session_state.dark
     st.session_state.lernstand["einstellungen"]["dark"] = st.session_state.dark
-    speichere_lernstand()
 
 
 def starte(modus: str, lf_key: str, daten: dict, fragen=None, zaehlt: bool = True) -> None:
@@ -347,7 +375,6 @@ def speichere_ergebnis() -> None:
         eintrag["versuche"] += 1
         eintrag["bestes"] = max(eintrag["bestes"], prozent)
         eintrag["letztes"] = prozent
-    speichere_lernstand()
 
 
 def weiter() -> None:
@@ -402,7 +429,32 @@ def setze_lernstand_zurueck() -> None:
     s.lernstand["lf"] = {}
     s.lernstand["fragen"] = {}
     s.reset_frage = False
-    speichere_lernstand()
+
+
+def lade_hoch() -> None:
+    s = st.session_state
+    datei = s.get("upload")
+    if datei is None:
+        return
+    try:
+        if datei.size > MAX_UPLOAD_BYTES:
+            raise ValueError("zu groß")
+        neu = pruefe_lernstand(json.loads(datei.getvalue().decode("utf-8")))
+    except (ValueError, UnicodeDecodeError):
+        s.upload_meldung = ("nok", "Die Datei ist kein gültiger Lernstand.")
+        return
+    s.lernstand = neu
+    s.dark = bool(neu["einstellungen"].get("dark", s.dark))
+    s.anzahl = int(neu["einstellungen"].get("anzahl", s.anzahl))
+    eigene = sum(len(v) for v in neu["eigene"].values())
+    bearbeitet = len(neu["fragen"])
+    s.upload_meldung = ("ok", f"Lernstand geladen: {bearbeitet} bearbeitete {'Frage' if bearbeitet == 1 else 'Fragen'}, "
+                              f"{eigene} eigene {'Frage' if eigene == 1 else 'Fragen'}.")
+
+
+def katalog_mit_eigenen(basis: dict) -> str:
+    """Kompletter Katalog inkl. eigener Fragen, z. B. um fragen.json im Projekt zu aktualisieren."""
+    return json.dumps(mit_eigenen_fragen(basis), ensure_ascii=False, indent=2)
 
 
 def speichere_frage() -> None:
@@ -428,22 +480,14 @@ def speichere_frage() -> None:
         s.ed_meldung = ("nok", fehler)
         return
 
-    try:
-        katalog = json.loads(FRAGEN_DATEI.read_text(encoding="utf-8"))
-        katalog[s.ed_lf]["fragen"].append({
-            "frage": frage, "optionen": optionen, "richtig": optionen.index(richtige),
-            "erklaerung": erklaerung,
-        })
-        FRAGEN_DATEI.write_text(json.dumps(katalog, ensure_ascii=False, indent=2), encoding="utf-8")
-    except (OSError, ValueError, KeyError):
-        s.ed_meldung = ("nok", "Die Frage konnte nicht in fragen.json gespeichert werden.")
-        return
-
-    lade_fragen.clear()
+    s.lernstand["eigene"].setdefault(s.ed_lf, []).append({
+        "frage": frage, "optionen": optionen, "richtig": optionen.index(richtige), "erklaerung": erklaerung,
+    })
     for schluessel in ("ed_frage", "ed_o0", "ed_o1", "ed_o2", "ed_o3", "ed_erk"):
         s[schluessel] = ""
     s.ed_richtig = 0
-    s.ed_meldung = ("ok", f"Gespeichert! Die Frage ist jetzt in Lernfeld {s.ed_lf} enthalten.")
+    s.ed_meldung = ("ok", f"Gespeichert! Die Frage ist jetzt in deinem Lernfeld {s.ed_lf} enthalten. "
+                          "Sichere deinen Lernstand in der Statistik, damit sie beim nächsten Besuch erhalten bleibt.")
 
 
 # ---------------------------------------------------------------------------
@@ -491,7 +535,7 @@ def sidebar() -> None:
             st.button(label, key=f"nav_{seite}", type="primary" if s.seite == seite else "secondary",
                       on_click=gehe, args=(seite,), use_container_width=True)
         st.divider()
-        st.caption("🛠️ Ausbildung IT-Berufe · Vorbereitung auf die Zwischenprüfung · Version 3.1")
+        st.caption("🛠️ Ausbildung IT-Berufe · Vorbereitung auf die Zwischenprüfung · Version 4.0")
 
 
 # ---------------------------------------------------------------------------
@@ -741,6 +785,19 @@ def zeige_statistik(daten: dict) -> None:
             md(f'<div class="srow"><div class="k">{esc(text)}</div>'
                f'<div class="me"><span class="chip">{lf_icon(k)} LF {esc(k)}</span>❌ {fehler_anzahl}× falsch · ✅ {e.get("r", 0)}× richtig</div></div>')
 
+    md('<div class="sec"><span>💾</span><span class="tag">Lernstand sichern & laden</span></div>')
+    md('<div class="me" style="color:var(--muted);font-size:.88rem;margin-bottom:8px">Dein Lernstand wird nur in '
+       'diesem Browserfenster gehalten und nicht auf dem Server gespeichert. Sichere ihn als Datei und lade ihn '
+       'beim nächsten Besuch wieder hoch.</div>')
+    st.download_button("📥 Lernstand sichern (.json)", use_container_width=True,
+                       data=json.dumps(s.lernstand, ensure_ascii=False, indent=2),
+                       file_name="mein_lernstand.json", mime="application/json")
+    st.file_uploader("📤 Gesicherten Lernstand laden", type=["json"], key="upload", on_change=lade_hoch)
+    if s.get("upload_meldung"):
+        art, text = s.upload_meldung
+        md(f'<div class="feedback {art}">{esc(text)}</div>')
+    md('<div style="height:14px"></div>')
+
     if not s.get("reset_frage"):
         st.button("🗑️ Lernstand zurücksetzen", on_click=setze, args=("reset_frage", True))
     else:
@@ -757,7 +814,7 @@ def zeige_statistik(daten: dict) -> None:
 def zeige_editor(daten: dict) -> None:
     s = st.session_state
     hero("Eigene Fragen", "Fragen hinzufügen",
-         "Ergänze den Katalog mit Inhalten aus deinen Lernzetteln – gespeichert in fragen.json", "✏️")
+         "Ergänze den Katalog mit Inhalten aus deinen Lernzetteln – sie erscheinen nur bei dir", "✏️")
 
     md('<div class="sec"><span>📚</span><span class="tag">Lernfeld</span></div>')
     for spalte, key in zip(st.columns(len(daten)), daten.keys()):
@@ -781,8 +838,14 @@ def zeige_editor(daten: dict) -> None:
     if s.ed_meldung:
         art, text = s.ed_meldung
         md(f'<div class="feedback {art}">{esc(text)}</div>')
-    md('<div class="me" style="color:var(--muted);font-size:.85rem">💡 Tipp: Sichere dir vorher eine Kopie '
-       'deiner fragen.json, wenn du viele Fragen ergänzt.</div>')
+    anzahl_eigene = sum(len(v) for v in s.lernstand["eigene"].values())
+    md(f'<div class="kpis" style="margin-top:14px"><div class="kpi"><span class="i">✏️</span><b>{anzahl_eigene}</b>'
+       '<span>Eigene Fragen in dieser Sitzung</span></div></div>')
+    md('<div class="me" style="color:var(--muted);font-size:.85rem;margin-bottom:8px">💡 Eigene Fragen sieht nur '
+       'du. Sie werden mit deinem Lernstand gesichert. Möchtet ihr sie für alle übernehmen, lade den kompletten '
+       'Katalog herunter und ersetze damit fragen.json im Projekt.</div>')
+    st.download_button("📥 Katalog inkl. eigener Fragen (fragen.json)", data=katalog_mit_eigenen(s.basis_fragen),
+                       file_name="fragen.json", mime="application/json", disabled=anzahl_eigene == 0)
 
 
 # ---------------------------------------------------------------------------
@@ -796,7 +859,8 @@ def main() -> None:
         st.error(f"Fragendatei nicht gefunden: {FRAGEN_DATEI.name} muss im selben Ordner wie dieses Skript liegen.")
         st.stop()
 
-    daten = lade_fragen(str(FRAGEN_DATEI))
+    st.session_state.basis_fragen = lade_fragen(str(FRAGEN_DATEI))
+    daten = mit_eigenen_fragen(st.session_state.basis_fragen)
     sidebar()
     kopfleiste()
 
