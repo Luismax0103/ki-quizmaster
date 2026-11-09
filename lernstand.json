@@ -1,0 +1,55 @@
+{
+  "einstellungen": {
+    "dark": true,
+    "anzahl": 10
+  },
+  "lf": {
+    "3": {
+      "versuche": 1,
+      "bestes": 38,
+      "letztes": 38
+    }
+  },
+  "fragen": {
+    "99c8f37537": {
+      "r": 1,
+      "f": 1,
+      "letzte": true
+    },
+    "683f2031f5": {
+      "r": 0,
+      "f": 2,
+      "letzte": false
+    },
+    "ace6bdee48": {
+      "r": 1,
+      "f": 1,
+      "letzte": true
+    },
+    "641ac7045e": {
+      "r": 0,
+      "f": 2,
+      "letzte": false
+    },
+    "3b22343a92": {
+      "r": 1,
+      "f": 0,
+      "letzte": true
+    },
+    "7366b77edf": {
+      "r": 1,
+      "f": 1,
+      "letzte": true
+    },
+    "5c77ef8b20": {
+      "r": 1,
+      "f": 0,
+      "letzte": true
+    },
+    "f1cbd1ff07": {
+      "r": 1,
+      "f": 0,
+      "letzte": true
+    }
+  }
+}

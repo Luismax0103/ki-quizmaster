@@ -1,0 +1,344 @@
+{
+  "1": {
+    "titel": "Das Unternehmen und die eigene Rolle im Betrieb beschreiben",
+    "fragen": [
+      {
+        "frage": "Wie hoch ist das gesetzliche Mindest-Stammkapital einer GmbH?",
+        "optionen": ["10.000 €", "25.000 €", "50.000 €", "120.000 €"],
+        "richtig": 1,
+        "erklaerung": "Eine GmbH benötigt mindestens 25.000 € Stammkapital. Die Gesellschafter haften nur mit dem Gesellschaftsvermögen, nicht mit ihrem Privatvermögen. Die UG (haftungsbeschränkt) ist die Variante mit geringem Startkapital (ab 1 €)."
+      },
+      {
+        "frage": "Bei welcher Rechtsform haften alle Gesellschafter unmittelbar, unbeschränkt und persönlich mit ihrem Privatvermögen?",
+        "optionen": [
+          "GmbH",
+          "Aktiengesellschaft (AG)",
+          "Offene Handelsgesellschaft (OHG)",
+          "UG (haftungsbeschränkt)"
+        ],
+        "richtig": 2,
+        "erklaerung": "Bei der OHG haften alle Gesellschafter gesamtschuldnerisch und unbeschränkt. Bei GmbH, AG und UG ist die Haftung auf das Gesellschaftsvermögen beschränkt."
+      },
+      {
+        "frage": "Welche zwei Lernorte kennzeichnen das Duale System der Berufsausbildung?",
+        "optionen": [
+          "Ausbildungsbetrieb und Berufsschule",
+          "Berufsschule und Universität",
+          "Ausbildungsbetrieb und Handelskammer",
+          "Berufsschule und Arbeitsagentur"
+        ],
+        "richtig": 0,
+        "erklaerung": "Das Duale System verbindet die praktische Ausbildung im Betrieb mit dem theoretischen Unterricht in der Berufsschule. Die Kammer (z. B. IHK) ist die zuständige Stelle, aber kein Lernort."
+      },
+      {
+        "frage": "Welches Gesetz bildet die zentrale Rechtsgrundlage für die betriebliche Berufsausbildung?",
+        "optionen": [
+          "Jugendarbeitsschutzgesetz (JArbSchG)",
+          "Berufsbildungsgesetz (BBiG)",
+          "Betriebsverfassungsgesetz (BetrVG)",
+          "Handelsgesetzbuch (HGB)"
+        ],
+        "richtig": 1,
+        "erklaerung": "Das BBiG regelt u. a. den Ausbildungsvertrag, die Rechte und Pflichten von Auszubildenden und Ausbildenden sowie die Probezeit."
+      },
+      {
+        "frage": "Wie lang muss bzw. darf die Probezeit in einem Berufsausbildungsverhältnis sein?",
+        "optionen": [
+          "Mindestens 2 Wochen, höchstens 2 Monate",
+          "Mindestens 1 Monat, höchstens 4 Monate",
+          "Mindestens 3 Monate, höchstens 6 Monate",
+          "Genau 6 Monate"
+        ],
+        "richtig": 1,
+        "erklaerung": "Nach § 20 BBiG beträgt die Probezeit mindestens einen und höchstens vier Monate. In dieser Zeit kann das Ausbildungsverhältnis ohne Einhaltung einer Kündigungsfrist und ohne Angabe von Gründen beendet werden."
+      },
+      {
+        "frage": "Welches Gremium vertritt in einem Betrieb mit Betriebsrat besonders die Interessen von Jugendlichen unter 18 Jahren und Auszubildenden unter 25 Jahren?",
+        "optionen": [
+          "Aufsichtsrat",
+          "Gewerkschaft",
+          "Jugend- und Auszubildendenvertretung (JAV)",
+          "Handwerkskammer"
+        ],
+        "richtig": 2,
+        "erklaerung": "Die JAV arbeitet eng mit dem Betriebsrat zusammen und vertritt die Belange der jungen Beschäftigten und Auszubildenden gegenüber der Betriebsleitung."
+      },
+      {
+        "frage": "Welche Schutzmaßnahme hat nach dem STOP-Prinzip im Arbeitsschutz die höchste Priorität?",
+        "optionen": [
+          "Substitution (Gefahrenquelle ersetzen oder beseitigen)",
+          "Technische Schutzmaßnahmen",
+          "Organisatorische Schutzmaßnahmen",
+          "Persönliche Schutzausrüstung (PSA)"
+        ],
+        "richtig": 0,
+        "erklaerung": "STOP steht für Substitution, Technische, Organisatorische und Persönliche Schutzmaßnahmen – in dieser Reihenfolge. Die Gefahr an der Quelle zu beseitigen hat Vorrang vor der persönlichen Schutzausrüstung."
+      },
+      {
+        "frage": "Wie müssen ausgediente Elektro-Altgeräte (z. B. alte PCs und Monitore) entsorgt werden?",
+        "optionen": [
+          "Im Hausmüll, wenn sie zerlegt wurden",
+          "In der Gelben Tonne",
+          "Über Rücknahmestellen bzw. Sammelstellen nach dem ElektroG",
+          "Durch Vergraben auf dem Betriebsgelände"
+        ],
+        "richtig": 2,
+        "erklaerung": "Das Elektro- und Elektronikgerätegesetz (ElektroG) verbietet die Entsorgung im Hausmüll. Erkennbar ist dies am Symbol der durchgestrichenen Mülltonne. Wertstoffe werden recycelt, Schadstoffe fachgerecht entsorgt."
+      }
+    ]
+  },
+  "2": {
+    "titel": "Arbeitsplätze nach Kundenwunsch ausstatten",
+    "fragen": [
+      {
+        "frage": "Welche Aufgabe hat der Arbeitsspeicher (RAM) im Computer?",
+        "optionen": [
+          "Dauerhafte Speicherung von Dokumenten",
+          "Flüchtiger Zwischenspeicher für laufende Programme und Daten",
+          "Berechnung von Grafikausgaben",
+          "Versorgung der Komponenten mit Strom"
+        ],
+        "richtig": 1,
+        "erklaerung": "Der RAM hält Programme und Daten, mit denen die CPU gerade arbeitet. Er ist flüchtig: Beim Ausschalten gehen die Inhalte verloren."
+      },
+      {
+        "frage": "Welchen Vorteil hat eine SSD gegenüber einer klassischen HDD?",
+        "optionen": [
+          "Keine beweglichen Teile, schnellere Zugriffszeiten und höhere Stoßunempfindlichkeit",
+          "Deutlich niedrigerer Preis pro Gigabyte",
+          "Unbegrenzt viele Schreibzyklen",
+          "Sie benötigt zwingend einen Lüfter zur Kühlung"
+        ],
+        "richtig": 0,
+        "erklaerung": "SSDs speichern in Flash-Speicherzellen und haben keine rotierenden Scheiben. Dadurch sind sie schneller und robuster. HDDs sind dafür pro Gigabyte meist günstiger."
+      },
+      {
+        "frage": "Wie sollte ein Bildschirm an einem ergonomischen Arbeitsplatz idealerweise aufgestellt sein?",
+        "optionen": [
+          "Oberkante auf oder knapp unter Augenhöhe, Sehabstand ca. 50–70 cm",
+          "Deutlich über Augenhöhe, damit der Nacken gestreckt wird",
+          "Direkt vor einem Fenster, damit viel Tageslicht einfällt",
+          "So nah wie möglich (ca. 20 cm), damit alles gut lesbar ist"
+        ],
+        "richtig": 0,
+        "erklaerung": "Der Blick sollte leicht nach unten gehen. Den Bildschirm stellt man seitlich zum Fenster auf, um Blendung und Spiegelungen zu vermeiden."
+      },
+      {
+        "frage": "Was kennzeichnet Open-Source-Software?",
+        "optionen": [
+          "Der Quellcode ist einsehbar und darf unter den Lizenzbedingungen (z. B. GPL) verändert und weitergegeben werden",
+          "Sie ist immer kostenlos und unterliegt keinerlei Lizenzbedingungen",
+          "Nur der Hersteller darf den Quellcode ändern",
+          "Sie darf ausschließlich privat, nicht kommerziell genutzt werden"
+        ],
+        "richtig": 0,
+        "erklaerung": "Open Source bedeutet offener Quellcode – trotzdem gilt eine Lizenz (z. B. GPL, MIT, Apache). Eine kommerzielle Nutzung ist bei vielen Open-Source-Lizenzen erlaubt."
+      },
+      {
+        "frage": "Eine Softwarelizenz ist fest an das Gerät gebunden, auf dem sie vorinstalliert wurde, und darf nicht auf einen anderen Rechner übertragen werden. Um welches Lizenzmodell handelt es sich?",
+        "optionen": [
+          "OEM-Lizenz",
+          "Volumenlizenz",
+          "Open-Source-Lizenz",
+          "Freeware-Lizenz"
+        ],
+        "richtig": 0,
+        "erklaerung": "OEM-Lizenzen sind an die Hardware gebunden und meist günstiger. Volumenlizenzen decken mehrere Installationen bzw. Nutzer in einem Unternehmen über einen Vertrag ab."
+      },
+      {
+        "frage": "Welcher Schritt folgt im Beschaffungsprozess direkt auf die Bedarfsermittlung?",
+        "optionen": [
+          "Die Bestellung auslösen",
+          "Bezugsquellen ermitteln und Angebote einholen",
+          "Die Rechnung bezahlen",
+          "Den Wareneingang prüfen"
+        ],
+        "richtig": 1,
+        "erklaerung": "Typischer Ablauf: Bedarfsermittlung → Angebote einholen → Angebote vergleichen → Bestellung → Wareneingangsprüfung → Rechnungsprüfung und Zahlung."
+      },
+      {
+        "frage": "Was beschreibt der Begriff TCO (Total Cost of Ownership)?",
+        "optionen": [
+          "Nur den Anschaffungspreis eines Geräts",
+          "Den Verkaufspreis nach Abzug aller Rabatte",
+          "Die Gesamtkosten über den Lebenszyklus (Anschaffung, Betrieb, Wartung, Entsorgung)",
+          "Die Abschreibung pro Jahr"
+        ],
+        "richtig": 2,
+        "erklaerung": "Bei Wirtschaftlichkeitsbetrachtungen zählt nicht nur der Kaufpreis, sondern auch Energie-, Wartungs-, Support- und Entsorgungskosten."
+      },
+      {
+        "frage": "Wofür wird eine Nutzwertanalyse eingesetzt?",
+        "optionen": [
+          "Zur Berechnung der Mehrwertsteuer",
+          "Zum Vergleich von Alternativen anhand gewichteter Kriterien",
+          "Zur Ermittlung der Netzwerkgeschwindigkeit",
+          "Zur Prüfung der Lizenzgültigkeit"
+        ],
+        "richtig": 1,
+        "erklaerung": "Bei der Nutzwertanalyse werden Kriterien (z. B. Leistung, Preis, Support) gewichtet und bewertet. So lassen sich auch nicht-monetäre Aspekte in die Entscheidung einbeziehen."
+      }
+    ]
+  },
+  "3": {
+    "titel": "Clients in Netzwerke einbinden",
+    "fragen": [
+      {
+        "frage": "Auf welcher Schicht des OSI-Referenzmodells arbeitet ein Router?",
+        "optionen": [
+          "Schicht 1 – Bitübertragungsschicht",
+          "Schicht 2 – Sicherungsschicht",
+          "Schicht 3 – Vermittlungsschicht",
+          "Schicht 4 – Transportschicht"
+        ],
+        "richtig": 2,
+        "erklaerung": "Router arbeiten auf Schicht 3 und leiten Pakete anhand von IP-Adressen zwischen Netzen weiter. Klassische Switches arbeiten auf Schicht 2 (MAC-Adressen)."
+      },
+      {
+        "frage": "Welches Transportprotokoll arbeitet verbindungsorientiert und stellt eine zuverlässige Datenübertragung sicher?",
+        "optionen": ["UDP", "TCP", "ICMP", "ARP"],
+        "richtig": 1,
+        "erklaerung": "TCP baut mit einem Drei-Wege-Handshake eine Verbindung auf und sichert die Übertragung durch Bestätigungen. UDP ist verbindungslos und schneller, aber ohne Zustellgarantie."
+      },
+      {
+        "frage": "Wie lang ist eine IPv6-Adresse?",
+        "optionen": ["32 Bit", "64 Bit", "128 Bit", "256 Bit"],
+        "richtig": 2,
+        "erklaerung": "IPv6-Adressen haben 128 Bit und werden hexadezimal in acht Blöcken geschrieben. IPv4-Adressen haben nur 32 Bit."
+      },
+      {
+        "frage": "Wie viele nutzbare Host-Adressen bietet ein IPv4-Netz mit der Subnetzmaske 255.255.255.0 (/24)?",
+        "optionen": ["256", "255", "254", "253"],
+        "richtig": 2,
+        "erklaerung": "Bei /24 bleiben 8 Bit für den Hostanteil: 2⁸ = 256 Adressen. Davon sind die Netzadresse und die Broadcast-Adresse nicht nutzbar, also 254."
+      },
+      {
+        "frage": "Welche der folgenden IPv4-Adressen liegt in einem privaten Adressbereich (RFC 1918)?",
+        "optionen": ["172.32.10.5", "192.169.0.10", "172.20.4.15", "8.8.8.8"],
+        "richtig": 2,
+        "erklaerung": "Private Bereiche: 10.0.0.0/8, 172.16.0.0/12 (172.16.0.0–172.31.255.255) und 192.168.0.0/16. 172.20.4.15 liegt im mittleren Bereich."
+      },
+      {
+        "frage": "Welche Aufgabe hat ein DHCP-Server?",
+        "optionen": [
+          "Er vergibt IP-Konfigurationen (IP-Adresse, Subnetzmaske, Gateway, DNS) automatisch an Clients",
+          "Er löst Domainnamen in IP-Adressen auf",
+          "Er filtert den Datenverkehr anhand von Regeln",
+          "Er verwaltet Benutzerkonten und Berechtigungen"
+        ],
+        "richtig": 0,
+        "erklaerung": "DHCP automatisiert die Netzwerkkonfiguration. Die Namensauflösung übernimmt DNS, das Filtern von Datenverkehr eine Firewall."
+      },
+      {
+        "frage": "Welches Übertragungsmedium ist unempfindlich gegenüber elektromagnetischen Störungen und eignet sich für große Entfernungen?",
+        "optionen": [
+          "Twisted-Pair-Kupferkabel (UTP)",
+          "Lichtwellenleiter (Glasfaser)",
+          "Stromkabel",
+          "Unabgeschirmtes Telefonkabel"
+        ],
+        "richtig": 1,
+        "erklaerung": "Lichtwellenleiter übertragen Lichtimpulse statt elektrischer Signale. Dadurch sind sie störungsunempfindlich, abhörsicherer und erreichen große Reichweiten bei hoher Bandbreite."
+      },
+      {
+        "frage": "Welches Zugriffsverfahren wird im WLAN (IEEE 802.11) verwendet?",
+        "optionen": ["CSMA/CD", "CSMA/CA", "Token Passing", "Polling"],
+        "richtig": 1,
+        "erklaerung": "WLAN nutzt CSMA/CA (Collision Avoidance), da Kollisionen im Funkmedium nicht zuverlässig erkannt werden können. CSMA/CD wurde im klassischen Ethernet mit Hubs eingesetzt."
+      }
+    ]
+  },
+  "4": {
+    "titel": "Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen",
+    "fragen": [
+      {
+        "frage": "Wofür steht die CIA-Triade in der IT-Sicherheit?",
+        "optionen": [
+          "Confidentiality, Integrity, Availability",
+          "Control, Inspection, Authorization",
+          "Cryptography, Identity, Access",
+          "Confidentiality, Identity, Authentication"
+        ],
+        "richtig": 0,
+        "erklaerung": "Die drei klassischen Schutzziele sind Vertraulichkeit (Confidentiality), Integrität (Integrity) und Verfügbarkeit (Availability)."
+      },
+      {
+        "frage": "Ein Angreifer verändert unbemerkt Datensätze in einer Datenbank. Welches Schutzziel wird dadurch verletzt?",
+        "optionen": [
+          "Vertraulichkeit",
+          "Verfügbarkeit",
+          "Integrität",
+          "Nachhaltigkeit"
+        ],
+        "richtig": 2,
+        "erklaerung": "Integrität bedeutet, dass Daten vollständig und unverändert sind. Werden sie unbefugt manipuliert, ist dieses Schutzziel verletzt."
+      },
+      {
+        "frage": "Ein DDoS-Angriff legt den Webshop eines Unternehmens für mehrere Stunden lahm. Welches Schutzziel ist primär betroffen?",
+        "optionen": [
+          "Vertraulichkeit",
+          "Integrität",
+          "Verfügbarkeit",
+          "Authentizität"
+        ],
+        "richtig": 2,
+        "erklaerung": "Bei einem DDoS-Angriff wird ein Dienst durch Überlastung unerreichbar. Das verletzt die Verfügbarkeit."
+      },
+      {
+        "frage": "Ein Mitarbeiter erhält eine gefälschte E-Mail im Namen der IT-Abteilung und gibt auf einer nachgebauten Webseite sein Passwort ein. Um welche Bedrohung handelt es sich?",
+        "optionen": [
+          "Phishing (Social Engineering)",
+          "Brute-Force-Angriff",
+          "SQL-Injection",
+          "Man-in-the-Middle-Angriff"
+        ],
+        "richtig": 0,
+        "erklaerung": "Phishing nutzt Täuschung, um an Zugangsdaten zu gelangen. Schutz bieten Sensibilisierung der Mitarbeiter, E-Mail-Filter und Zwei-Faktor-Authentifizierung."
+      },
+      {
+        "frage": "In welche Schutzbedarfskategorien teilt der BSI IT-Grundschutz den Schutzbedarf üblicherweise ein?",
+        "optionen": [
+          "Normal, hoch, sehr hoch",
+          "Niedrig, mittel, hoch",
+          "Gering, mittel, kritisch",
+          "Öffentlich, intern, geheim"
+        ],
+        "richtig": 0,
+        "erklaerung": "Der Schutzbedarf wird je Schutzziel (Vertraulichkeit, Integrität, Verfügbarkeit) und je Objekt festgelegt. Maßstab sind die möglichen Schäden bei einer Verletzung."
+      },
+      {
+        "frage": "Welche der folgenden Maßnahmen ist eine organisatorische Maßnahme?",
+        "optionen": [
+          "Installation einer Firewall",
+          "Verschlüsselung der Festplatten",
+          "Aufstellen einer Passwortrichtlinie mit Mitarbeiterschulung",
+          "Einbau einer unterbrechungsfreien Stromversorgung (USV)"
+        ],
+        "richtig": 2,
+        "erklaerung": "Organisatorische Maßnahmen betreffen Regeln, Prozesse und Schulungen. Firewall, Verschlüsselung und USV sind technische Maßnahmen."
+      },
+      {
+        "frage": "Welche Behörde veröffentlicht das IT-Grundschutz-Kompendium in Deutschland?",
+        "optionen": [
+          "Bundeskriminalamt (BKA)",
+          "Bundesnetzagentur (BNetzA)",
+          "Bundesamt für Sicherheit in der Informationstechnik (BSI)",
+          "TÜV"
+        ],
+        "richtig": 2,
+        "erklaerung": "Das BSI stellt mit dem IT-Grundschutz-Kompendium Bausteine und Anforderungen bereit, mit denen Organisationen ihre Informationssicherheit systematisch aufbauen können."
+      },
+      {
+        "frage": "Was besagt die 3-2-1-Regel für Datensicherungen?",
+        "optionen": [
+          "3 Kopien der Daten auf 2 verschiedenen Medien, davon 1 Kopie an einem externen Ort",
+          "3 Backups pro Tag, 2 Wochen Aufbewahrung, 1 verantwortlicher Administrator",
+          "3 Server an 2 Standorten mit 1 Cloud-Anbieter",
+          "3 Passwörter, 2 Faktoren, 1 Sicherheits-Token"
+        ],
+        "richtig": 0,
+        "erklaerung": "Die 3-2-1-Regel schützt die Verfügbarkeit von Daten: Mehrere Kopien, unterschiedliche Medien und mindestens eine Kopie außerhalb des Standorts (z. B. gegen Brand oder Ransomware)."
+      }
+    ]
+  }
+}
