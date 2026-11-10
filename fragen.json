@@ -4,7 +4,12 @@
     "fragen": [
       {
         "frage": "Wie hoch ist das gesetzliche Mindest-Stammkapital einer GmbH?",
-        "optionen": ["10.000 €", "25.000 €", "50.000 €", "120.000 €"],
+        "optionen": [
+          "10.000 €",
+          "25.000 €",
+          "50.000 €",
+          "120.000 €"
+        ],
         "richtig": 1,
         "erklaerung": "Eine GmbH benötigt mindestens 25.000 € Stammkapital. Die Gesellschafter haften nur mit dem Gesellschaftsvermögen, nicht mit ihrem Privatvermögen. Die UG (haftungsbeschränkt) ist die Variante mit geringem Startkapital (ab 1 €)."
       },
@@ -84,6 +89,50 @@
         ],
         "richtig": 2,
         "erklaerung": "Das Elektro- und Elektronikgerätegesetz (ElektroG) verbietet die Entsorgung im Hausmüll. Erkennbar ist dies am Symbol der durchgestrichenen Mülltonne. Wertstoffe werden recycelt, Schadstoffe fachgerecht entsorgt."
+      },
+      {
+        "frage": "Unter welcher Voraussetzung kann der Ausbildende ein Berufsausbildungsverhältnis nach der Probezeit kündigen?",
+        "optionen": [
+          "Jederzeit mit einer Frist von vier Wochen",
+          "Nur aus wichtigem Grund, ohne Einhaltung einer Frist",
+          "Nur zum Quartalsende",
+          "Gar nicht, auch nicht aus wichtigem Grund"
+        ],
+        "richtig": 1,
+        "erklaerung": "Nach der Probezeit darf der Ausbildende nur noch aus wichtigem Grund fristlos kündigen (§ 22 BBiG). Auszubildende können mit vier Wochen Frist kündigen, wenn sie die Ausbildung aufgeben oder in einen anderen Beruf wechseln wollen."
+      },
+      {
+        "frage": "Wie viele Stunden dürfen Jugendliche unter 18 Jahren nach dem Jugendarbeitsschutzgesetz höchstens pro Woche arbeiten?",
+        "optionen": [
+          "35 Stunden",
+          "40 Stunden",
+          "44 Stunden",
+          "48 Stunden"
+        ],
+        "richtig": 1,
+        "erklaerung": "Das JArbSchG erlaubt höchstens 8 Stunden täglich und 40 Stunden wöchentlich (5-Tage-Woche)."
+      },
+      {
+        "frage": "Welches Organ der Aktiengesellschaft führt die Geschäfte und vertritt die AG nach außen?",
+        "optionen": [
+          "Vorstand",
+          "Aufsichtsrat",
+          "Hauptversammlung",
+          "Betriebsrat"
+        ],
+        "richtig": 0,
+        "erklaerung": "Der Vorstand leitet die AG eigenverantwortlich. Der Aufsichtsrat überwacht ihn, die Hauptversammlung ist das Organ der Aktionäre."
+      },
+      {
+        "frage": "Wer schließt Tarifverträge ab?",
+        "optionen": [
+          "Gewerkschaften und Arbeitgeberverbände (oder einzelne Arbeitgeber)",
+          "Betriebsrat und einzelne Arbeitnehmer",
+          "Berufsschule und IHK",
+          "Bundestag und Bundesrat"
+        ],
+        "richtig": 0,
+        "erklaerung": "Tarifverträge werden von den Tarifparteien ausgehandelt (Tarifautonomie, Art. 9 GG). Sie regeln z. B. Löhne, Arbeitszeiten und Urlaub."
       }
     ]
   },
@@ -177,6 +226,50 @@
         ],
         "richtig": 1,
         "erklaerung": "Bei der Nutzwertanalyse werden Kriterien (z. B. Leistung, Preis, Support) gewichtet und bewertet. So lassen sich auch nicht-monetäre Aspekte in die Entscheidung einbeziehen."
+      },
+      {
+        "frage": "Welche Komponente verbindet alle anderen Hardwarekomponenten eines PCs miteinander?",
+        "optionen": [
+          "Mainboard (Hauptplatine)",
+          "Netzteil",
+          "Arbeitsspeicher",
+          "Grafikkarte"
+        ],
+        "richtig": 0,
+        "erklaerung": "Auf dem Mainboard sitzen Sockel, Speichersteckplätze, Erweiterungssteckplätze und Anschlüsse. Es stellt die Datenverbindungen zwischen den Komponenten her."
+      },
+      {
+        "frage": "Welche Eigenschaft hat ein RAID 1?",
+        "optionen": [
+          "Daten werden auf zwei Festplatten gespiegelt (Redundanz)",
+          "Daten werden ohne Redundanz auf mehrere Platten verteilt",
+          "Parität wird über mindestens drei Platten verteilt",
+          "Daten werden komprimiert gespeichert"
+        ],
+        "richtig": 0,
+        "erklaerung": "RAID 1 spiegelt die Daten (Mirroring). Fällt eine Platte aus, bleiben die Daten erhalten. RAID 0 (Striping) bringt Geschwindigkeit ohne Ausfallschutz, RAID 5 nutzt verteilte Parität."
+      },
+      {
+        "frage": "Was ist ein Vorteil von Leasing gegenüber dem Kauf von Hardware?",
+        "optionen": [
+          "Geringere Kapitalbindung durch planbare monatliche Raten",
+          "Das Gerät gehört nach Vertragsende automatisch dem Leasingnehmer",
+          "Die Gesamtkosten sind immer niedriger als beim Kauf",
+          "Das Gerät darf frei verändert und weiterverkauft werden"
+        ],
+        "richtig": 0,
+        "erklaerung": "Leasing schont die Liquidität und ermöglicht regelmäßigen Geräteaustausch. Insgesamt kann es aber teurer sein als ein Kauf, und das Eigentum bleibt beim Leasinggeber."
+      },
+      {
+        "frage": "Wer erstellt üblicherweise das Lastenheft?",
+        "optionen": [
+          "Der Auftraggeber (Kunde)",
+          "Der Auftragnehmer",
+          "Der Hardware-Hersteller",
+          "Die Berufsgenossenschaft"
+        ],
+        "richtig": 0,
+        "erklaerung": "Im Lastenheft beschreibt der Auftraggeber, was er braucht. Das Pflichtenheft des Auftragnehmers beschreibt, wie die Anforderungen umgesetzt werden."
       }
     ]
   },
@@ -196,25 +289,45 @@
       },
       {
         "frage": "Welches Transportprotokoll arbeitet verbindungsorientiert und stellt eine zuverlässige Datenübertragung sicher?",
-        "optionen": ["UDP", "TCP", "ICMP", "ARP"],
+        "optionen": [
+          "UDP",
+          "TCP",
+          "ICMP",
+          "ARP"
+        ],
         "richtig": 1,
         "erklaerung": "TCP baut mit einem Drei-Wege-Handshake eine Verbindung auf und sichert die Übertragung durch Bestätigungen. UDP ist verbindungslos und schneller, aber ohne Zustellgarantie."
       },
       {
         "frage": "Wie lang ist eine IPv6-Adresse?",
-        "optionen": ["32 Bit", "64 Bit", "128 Bit", "256 Bit"],
+        "optionen": [
+          "32 Bit",
+          "64 Bit",
+          "128 Bit",
+          "256 Bit"
+        ],
         "richtig": 2,
         "erklaerung": "IPv6-Adressen haben 128 Bit und werden hexadezimal in acht Blöcken geschrieben. IPv4-Adressen haben nur 32 Bit."
       },
       {
         "frage": "Wie viele nutzbare Host-Adressen bietet ein IPv4-Netz mit der Subnetzmaske 255.255.255.0 (/24)?",
-        "optionen": ["256", "255", "254", "253"],
+        "optionen": [
+          "256",
+          "255",
+          "254",
+          "253"
+        ],
         "richtig": 2,
         "erklaerung": "Bei /24 bleiben 8 Bit für den Hostanteil: 2⁸ = 256 Adressen. Davon sind die Netzadresse und die Broadcast-Adresse nicht nutzbar, also 254."
       },
       {
         "frage": "Welche der folgenden IPv4-Adressen liegt in einem privaten Adressbereich (RFC 1918)?",
-        "optionen": ["172.32.10.5", "192.169.0.10", "172.20.4.15", "8.8.8.8"],
+        "optionen": [
+          "172.32.10.5",
+          "192.169.0.10",
+          "172.20.4.15",
+          "8.8.8.8"
+        ],
         "richtig": 2,
         "erklaerung": "Private Bereiche: 10.0.0.0/8, 172.16.0.0/12 (172.16.0.0–172.31.255.255) und 192.168.0.0/16. 172.20.4.15 liegt im mittleren Bereich."
       },
@@ -242,9 +355,58 @@
       },
       {
         "frage": "Welches Zugriffsverfahren wird im WLAN (IEEE 802.11) verwendet?",
-        "optionen": ["CSMA/CD", "CSMA/CA", "Token Passing", "Polling"],
+        "optionen": [
+          "CSMA/CD",
+          "CSMA/CA",
+          "Token Passing",
+          "Polling"
+        ],
         "richtig": 1,
         "erklaerung": "WLAN nutzt CSMA/CA (Collision Avoidance), da Kollisionen im Funkmedium nicht zuverlässig erkannt werden können. CSMA/CD wurde im klassischen Ethernet mit Hubs eingesetzt."
+      },
+      {
+        "frage": "Welcher Standardport wird für HTTPS verwendet?",
+        "optionen": [
+          "80",
+          "443",
+          "25",
+          "53"
+        ],
+        "richtig": 1,
+        "erklaerung": "HTTPS nutzt TCP-Port 443. Zum Vergleich: HTTP 80, SMTP 25, DNS 53, SSH 22."
+      },
+      {
+        "frage": "Welche Aufgabe hat das DNS (Domain Name System)?",
+        "optionen": [
+          "Es löst Domainnamen in IP-Adressen auf",
+          "Es vergibt IP-Adressen automatisch",
+          "Es verschlüsselt Datenverkehr",
+          "Es verbindet zwei Netzwerke miteinander"
+        ],
+        "richtig": 0,
+        "erklaerung": "DNS übersetzt Namen wie www.example.com in IP-Adressen. Die automatische Adressvergabe übernimmt DHCP."
+      },
+      {
+        "frage": "Welche Netzwerktopologie wird in modernen Ethernet-LANs hauptsächlich eingesetzt?",
+        "optionen": [
+          "Stern",
+          "Bus",
+          "Ring",
+          "Vollvermaschung"
+        ],
+        "richtig": 0,
+        "erklaerung": "In der Sterntopologie sind alle Geräte mit einem zentralen Switch verbunden. Ein defektes Kabel betrifft nur ein Gerät, der Switch ist aber der zentrale Ausfallpunkt."
+      },
+      {
+        "frage": "Wofür wird das Protokoll ARP verwendet?",
+        "optionen": [
+          "Zu einer IP-Adresse die passende MAC-Adresse im lokalen Netz ermitteln",
+          "Domainnamen auflösen",
+          "E-Mails versenden",
+          "IP-Adressen dynamisch vergeben"
+        ],
+        "richtig": 0,
+        "erklaerung": "ARP (Address Resolution Protocol) ordnet im lokalen Netz IPv4-Adressen den MAC-Adressen zu, die für die Zustellung auf Schicht 2 benötigt werden."
       }
     ]
   },
@@ -338,6 +500,50 @@
         ],
         "richtig": 0,
         "erklaerung": "Die 3-2-1-Regel schützt die Verfügbarkeit von Daten: Mehrere Kopien, unterschiedliche Medien und mindestens eine Kopie außerhalb des Standorts (z. B. gegen Brand oder Ransomware)."
+      },
+      {
+        "frage": "Welche Maßnahme schützt vorrangig die Vertraulichkeit von Daten bei der Übertragung?",
+        "optionen": [
+          "Verschlüsselung (z. B. TLS oder VPN)",
+          "Regelmäßiges Backup",
+          "Unterbrechungsfreie Stromversorgung (USV)",
+          "Redundante Server"
+        ],
+        "richtig": 0,
+        "erklaerung": "Verschlüsselung verhindert, dass Unbefugte übertragene Daten mitlesen können. Backup, USV und Redundanz dienen vor allem der Verfügbarkeit."
+      },
+      {
+        "frage": "Welche Kombination ist eine echte Zwei-Faktor-Authentifizierung?",
+        "optionen": [
+          "Passwort und Sicherheitsfrage",
+          "Passwort und einmaliger Code aus einer Authenticator-App",
+          "Zwei verschiedene Passwörter",
+          "Benutzername und Passwort"
+        ],
+        "richtig": 1,
+        "erklaerung": "Zwei-Faktor-Authentifizierung kombiniert zwei verschiedene Kategorien, z. B. Wissen (Passwort) und Besitz (Smartphone oder Token). Passwort und Sicherheitsfrage sind beides Wissen."
+      },
+      {
+        "frage": "Was macht Ransomware?",
+        "optionen": [
+          "Sie verschlüsselt Daten und fordert Lösegeld für die Freigabe",
+          "Sie leitet Werbung auf Webseiten ein",
+          "Sie liest heimlich Tastatureingaben mit",
+          "Sie beschleunigt den Rechner"
+        ],
+        "richtig": 0,
+        "erklaerung": "Ransomware verletzt vor allem die Verfügbarkeit. Wirksamer Schutz sind regelmäßige Offline-Backups, Updates und geschulte Mitarbeiter."
+      },
+      {
+        "frage": "Welche der folgenden Angaben sind personenbezogene Daten im Sinne der DSGVO?",
+        "optionen": [
+          "Name und Telefonnummer eines Kunden",
+          "Der Gesamtumsatz des Unternehmens",
+          "Die Modellnummer eines Druckers",
+          "Eine anonymisierte Statistik ohne Personenbezug"
+        ],
+        "richtig": 0,
+        "erklaerung": "Personenbezogene Daten beziehen sich auf eine identifizierte oder identifizierbare natürliche Person, z. B. Name, Telefonnummer oder E-Mail-Adresse."
       }
     ]
   }
